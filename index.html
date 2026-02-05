@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hack or Defend | Initializing...</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at center, #020617, #000);
+      color: #e5e7eb;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+    }
+
+    /* MATRIX BACKGROUND */
+    canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* CENTER */
+    .container {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .panel {
+      width: 520px;
+      background: rgba(2, 6, 23, 0.85);
+      border: 1px solid rgba(56,189,248,0.4);
+      border-radius: 18px;
+      padding: 2.8rem 3rem;
+      box-shadow: 0 0 80px rgba(56,189,248,0.25);
+    }
+
+    .title {
+      font-family: 'Orbitron', monospace;
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #22c55e, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .terminal {
+      margin-top: 1.8rem;
+      text-align: left;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #22c55e;
+      min-height: 120px;
+    }
+
+    .cursor::after {
+      content: '▌';
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .progress {
+      margin-top: 1.8rem;
+      width: 100%;
+      height: 8px;
+      background: #020617;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(56,189,248,0.3);
+    }
+
+    .bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #22c55e, #38bdf8);
+      animation: load 6s forwards;
+    }
+
+    @keyframes load {
+      to { width: 100%; }
+    }
+
+    .start-btn {
+      margin-top: 2rem;
+      width: 100%;
+      padding: 0.8rem;
+      font-family: 'Orbitron', monospace;
+      letter-spacing: 2px;
+      background: transparent;
+      border: 1px solid rgba(56,189,248,0.6);
+      color: #e5e7eb;
+      border-radius: 999px;
+      cursor: pointer;
+      opacity: 0;
+      animation: showBtn 1s forwards;
+      animation-delay: 6.2s;
+    }
+
+    @keyframes showBtn {
+      to { opacity: 1; }
+    }
+
+    .start-btn:hover {
+      background: rgba(56,189,248,0.15);
+      box-shadow: 0 0 25px rgba(56,189,248,0.5);
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="container">
+  <div class="panel">
+    <div class="title">HACK OR DEFEND</div>
+
+    <div class="terminal" id="terminal"></div>
+
+    <div class="progress">
+      <div class="bar"></div>
+    </div>
+
+    <button class="start-btn">▶ ENTER SIMULATION</button>
+  </div>
+</div>
+
+<script>
+  /* MATRIX EFFECT */
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const letters = '01';
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array.from({ length: columns }, () => 1);
+
+  function drawMatrix() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#22c55e';
+    ctx.font = fontSize + 'px monospace';
+
+    drops.forEach((y, i) => {
+      const text = letters[Math.floor(Math.random() * letters.length)];
+      ctx.fillText(text, i * fontSize, y * fontSize);
+      if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    });
+  }
+
+  setInterval(drawMatrix, 33);
+
+  /* TERMINAL TYPING */
+  const lines = [
+    'Booting Hack or Defend OS...',
+    'Loading AI Attacker Module...',
+    'Initializing Defense Systems...',
+    'Establishing Secure Channels...',
+    'Simulation Ready.'
+  ];
+
+  const terminal = document.getElementById('terminal');
+  let line = 0, char = 0;
+
+  function type() {
+    if (line < lines.length) {
+      if (char < lines[line].length) {
+        terminal.innerHTML += lines[line][char++];
+      } else {
+        terminal.innerHTML += '<br>';
+        line++; char = 0;
+      }
+      setTimeout(type, 40);
+    }
+  }
+
+  type();
+</script>
+
+</body>
+</html>
