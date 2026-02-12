@@ -8,7 +8,7 @@ Instead of traditional theory-heavy learning, this project uses game mechanics, 
 
 The game simulates real-world cyber threats such as phishing, password attacks, social engineering, malware, and privacy risks in a safe and fun environment. Players learn by making decisions, solving challenges, and facing consequences, just like in real life—but without real risk.
 
- Problem Statement
+ # Problem Statement
 
 In today’s digital world, people of all age groups—children, students, adults, and senior citizens—are increasingly vulnerable to cyber threats due to:
 
@@ -30,7 +30,7 @@ Difficult for beginners or non-technical users
 
 There is a need for a simple, engaging, and age-inclusive solution that teaches cybersecurity through practical experience rather than fear or complex theory.
 
- Objectives
+ # Objectives
 
 The main objectives of this project are:
 
@@ -46,7 +46,7 @@ To reduce cybercrime risks by improving human-level cyber awareness
 
 To bridge the gap between technical knowledge and common users
 
- Core Features
+ # Core Features
 
  Game-Based Learning Levels
 
@@ -193,7 +193,7 @@ Who:
 
 AI Chatbot / Assistant
 
-Roles & Responsibilities:
+# Roles & Responsibilities:
 
 Explain cybersecurity concepts in simple language
 
@@ -201,7 +201,7 @@ Guide players during mistakes
 
 Provide personalized tips
 
-Interactions:
+# Interactions:
 
 Converses with players
 
@@ -209,7 +209,7 @@ Adapts responses based on age and skill level
 
 6.  Society & Organizations (Indirect Stakeholders)
 
-Who:
+# Who:
 
 Schools
 
@@ -217,17 +217,17 @@ NGOs
 
 Government awareness programs
 
-Roles & Responsibilities:
+# Roles & Responsibilities:
 
 Promote cyber awareness
 
 Reduce cybercrime incidents
 
-Interactions:
+# Interactions:
 
 Use platform data for awareness campaigns
 
- Stakeholder Interaction Flow
+ # Stakeholder Interaction Flow
 
 Player enters the game
 
@@ -245,7 +245,7 @@ Educators/parents review progress
 
 Developers improve system based on feedback
 
- Expected Impact
+ # Expected Impact
 
 Increased cybersecurity awareness across all age groups
 
@@ -266,3 +266,92 @@ Mobile app version
 Regional language support
 
 Leaderboards and tournaments
+Technology Stack Identification
+# Frontend
+
+HTML5
+
+CSS3 / Tailwind CSS
+
+JavaScript (ES6+)
+
+React.js (Game UI & state handling)
+
+Framer Motion / GSAP (Game animations)
+
+# Backend
+
+Node.js
+
+Express.js
+
+RESTful API architecture
+
+JWT-based authentication
+
+# AI Integration
+
+LLM API (OpenAI / similar)
+
+Prompt-based explanation engine
+
+Scenario feedback generator
+
+# Database
+
+MySQL
+
+Relational schema for structured tracking
+
+# Security Features
+
+Password hashing (bcrypt)
+
+Input validation
+
+Role-based access control
+
+Secure API routes
+
+# Packages & Libraries (Planned)
+Backend Packages
+
+express
+
+mysql2
+
+bcrypt
+
+jsonwebtoken
+
+dotenv
+
+cors
+
+nodemon
+
+Frontend Packages
+
+react
+
+axios
+
+react-router-dom
+
+framer-motion / gsap
+
+tailwindcss
+
+# Tools to Be Used
+
+VS Code – Development
+
+Git & GitHub – Version control
+
+Postman – API testing
+
+Figma – UI screen design
+
+MySQL Workbench – Database design
+
+Chrome DevTools – Debugging
